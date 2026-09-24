@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>یکی‌یدونم — از امیرعلی به نازنین</title>
+<meta name="description" content="۱۲۰ نامه‌ی عاشقانه از امیرعلی برای نازنین">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="starsCanvas"></canvas>
+<canvas id="heartsCanvas"></canvas>
+
+<!-- نشانگر پیشرفت -->
+<div class="progress-bar" id="progressBar" aria-hidden="true">
+  <div class="progress-bar__fill" id="progressFill"></div>
+  <span class="progress-bar__label" id="progressLabel">۰ از ۱۲۰</span>
+</div>
+
+<!-- دکمه‌ی SOS دلتنگی -->
+<button class="sos-button" id="sosButton">دلم گرفته</button>
+
+<!-- قلب مخفی گوشه‌ی صفحه (ایستر اگ ۱) -->
+<button class="secret-heart" id="secretHeart" aria-label="؟" title=""></button>
+
+<!-- ===================== صفحه‌ی نخست ===================== -->
+<section class="hero" id="heroScreen">
+  <div class="hero__glow"></div>
+  <div class="hero__content">
+    <p class="hero__eyebrow" id="logo3">امیرعلی و نازنین</p>
+    <h1 class="hero__title">
+      یکی‌یدونم
+    </h1>
+    <p class="hero__subtitle">از امیرعلی، به عزیزترینم، به یکی‌یدونم</p>
+
+    <div class="hero__counter">
+      <div class="counter__item">
+        <span class="counter__number" id="dayCount">۰</span>
+        <span class="counter__label">روز کنار هم</span>
+      </div>
+      <div class="counter__divider"></div>
+      <div class="counter__item">
+        <span class="counter__number" id="openedCount">۰</span>
+        <span class="counter__label">نامه‌ی خوانده‌شده</span>
+      </div>
+    </div>
+
+    <button class="btn btn--primary hero__cta" id="enterBtn">
+      رفتن به جعبه‌ی نامه‌ها
+    </button>
+
+    <p class="hero__hint">هر روز، یک نامه‌ی تازه باز می‌شود</p>
+
+    <div class="reason-box">
+      <button class="btn btn--ghost reason-box__btn" id="reasonBtn">یه دلیل تصادفی بده</button>
+      <p class="reason-box__text" id="reasonText"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== جعبه‌ی نامه‌ها ===================== -->
+<section class="vault" id="vaultScreen" hidden>
+  <header class="vault__header">
+    <button class="btn btn--ghost" id="backBtn">بازگشت</button>
+    <h2 class="vault__title">جعبه‌ی نامه‌ها</h2>
+    <div class="vault__spacer"></div>
+  </header>
+
+  <p class="vault__note">
+    نامه‌های باز، رنگ زرشکی دارند. نامه‌های قفل، هر روز یکی‌یکی باز می‌شوند.
+  </p>
+
+  <button class="capsule-card" id="capsuleCard" type="button">
+    <span class="capsule-card__icon">⏳</span>
+    <span class="capsule-card__text">
+      <strong>کپسول زمان</strong>
+      <span id="capsuleStatus">در حال محاسبه…</span>
+    </span>
+  </button>
+
+  <div class="letters-grid" id="lettersGrid"></div>
+</section>
+
+<!-- ===================== مودال نامه ===================== -->
+<div class="letter-modal" id="letterModal" hidden>
+  <div class="letter-modal__backdrop" id="modalBackdrop"></div>
+  <div class="letter-modal__stage">
+
+    <div class="envelope" id="envelope">
+      <div class="envelope__back"></div>
+      <div class="envelope__flap"></div>
+      <div class="envelope__letter" id="envelopeLetterPeek"></div>
+      <div class="envelope__front"></div>
+      <div class="envelope__seal" id="envelopeSeal">✉</div>
+    </div>
+
+    <article class="letter-card" id="letterCard" hidden>
+      <button class="letter-card__close" id="closeLetterBtn" aria-label="بستن">✕</button>
+      <p class="letter-card__number" id="letterNumber"></p>
+      <h3 class="letter-card__title" id="letterTitle"></h3>
+      <div class="letter-card__body" id="letterBody"></div>
+      <p class="letter-card__signature">امیرعلی</p>
+    </article>
+
+  </div>
+</div>
+
+<!-- ===================== نوتیفیکیشن ایستر اگ ===================== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===================== کنترل موسیقی ===================== -->
+<button class="music-toggle" id="musicToggle" aria-label="پخش موسیقی">
+  <span id="musicIcon">♪</span>
+</button>
+
+<!-- ورودی مخفی رمز (ایستر اگ ۲: تایپ کلمه‌ی رمز در هر جای صفحه) -->
+
+<script src="letters.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
